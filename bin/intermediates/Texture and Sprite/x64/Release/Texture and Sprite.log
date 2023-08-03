@@ -1,0 +1,18 @@
+﻿  main.cpp
+D:\dev\SFML Games\Texture and Sprite\src\main.cpp(5,34): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\dev\SFML Games\Texture and Sprite\src\main.cpp(15,40): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+D:\dev\SFML Games\Texture and Sprite\src\main.cpp(15,28): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  Generating code
+  4 of 77 functions ( 5.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Texture and Sprite.vcxproj -> D:\dev\SFML Games\bin\Texture and Sprite\x64\Release\Texture and Sprite.exe
