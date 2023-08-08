@@ -2,7 +2,6 @@
 
 int main(int argc, char** argv) {
 	Game game;
-	int count = 0;
 
 	// game loop
 	while (!game.GetWindow()->IsDone()) {
