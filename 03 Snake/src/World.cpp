@@ -39,11 +39,12 @@ void World::RespawnApple() {
 	m_appleShape.setPosition(m_item.x * m_blockSize, m_item.y * m_blockSize);
 }
 
-void World::Update(Snake& l_player) {
+void World::Update(Snake& l_player, Textbox& l_textbox) {
 	if (l_player.GetPosition() == m_item) {
 		l_player.Extend();
 		l_player.IncreaseScore();
 		RespawnApple();
+		l_textbox.Add("Apple eaten! Score: " + std::to_string(l_player.GetScore()));
 	}
 
 	int gridSize_x = m_windowSize.x / m_blockSize;
@@ -64,9 +65,3 @@ void World::Render(sf::RenderWindow& l_window) {
 }
 
 ///////////////////// private: /////////////////////
-sf::Vector2u m_windowSize;
-sf::Vector2i m_item;
-int m_blockSize;
-
-sf::CircleShape m_appleShape;
-sf::RectangleShape m_bounds[4];

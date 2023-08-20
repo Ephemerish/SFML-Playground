@@ -4,7 +4,7 @@
 Snake::Snake(int l_blockSize) {
 	m_size = l_blockSize;
 	m_bodyRect.setSize(sf::Vector2f(m_size - 1, m_size - 1));
-	Reset(sf::Vector2i(0, 0));
+	Reset(sf::Vector2i(10, 10));
 }
 Snake::~Snake() {}
 

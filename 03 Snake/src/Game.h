@@ -1,6 +1,7 @@
 #pragma once
 #include "Window.h"
 #include "World.h"
+#include "Textbox.h"
 
 class Game
 {
@@ -19,6 +20,7 @@ public:
 private:
 	World m_world;
 	Snake m_snake;
+	Textbox m_textbox;
 
 	Window m_window;
 

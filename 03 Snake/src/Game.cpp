@@ -1,10 +1,11 @@
 #include "Game.h"
 
 ////////// public //////////
-Game::Game() : m_window("Snake", sf::Vector2u(800, 600)),
-m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600))
+Game::Game() : m_window("Snake", sf::Vector2u(800, 600)),m_snake(m_world.GetBlockSize()), 
+	m_world(sf::Vector2u(800, 600))
 {
-
+	m_textbox.Setup(5, 14, 190, sf::Vector2f(800 - 190, m_window.GetWindowSize().y - 84 - 20));
+	m_textbox.Add("Seeded: " + std::to_string(time(NULL)));
 }
 Game:: ~Game() {}
 
@@ -38,13 +39,13 @@ void Game::Update() {
 	float timestep = 1.0f / m_snake.GetSpeed();
 	if (m_elapsed >= sf::seconds(timestep)) {
 		m_snake.Tick();
-		m_world.Update(m_snake);
+		m_world.Update(m_snake, m_textbox);
 		m_elapsed -= sf::seconds(timestep);
 		if (m_snake.HasLost()) {
 			int maxX = (m_window.GetWindowSize().x / m_world.GetBlockSize()) - 2;
 			int maxY = (m_window.GetWindowSize().y / m_world.GetBlockSize()) - 2;
 			sf::Vector2i startPos(rand() % maxX + 1, rand() % maxY + 1);
-
+			m_textbox.Add("You LOST! Score: " + std::to_string(m_snake.GetScore()));
 			m_snake.Reset(startPos);
 			m_world.RespawnApple();
 		}
@@ -57,6 +58,7 @@ void Game::Render() {
 	// start drawing
 	m_world.Render(m_window.GetRenderWindow());
 	m_snake.Render(m_window.GetRenderWindow());
+	m_textbox.Render(m_window.GetRenderWindow());
 	// display
 	m_window.EndDraw();
 }
