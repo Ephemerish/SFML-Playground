@@ -12,3 +12,6 @@ Welcome to my archive directory for the source code of my practice games! Please
 
 * SFML
 * ...
+
+## Frequently Asked Questions
+1. Are you the sole creator of these projects?
